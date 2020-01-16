@@ -59,6 +59,7 @@ Variable path -> path\to\javaSDK (put path to your actual sdk which is usually i
  ```
 %JAVA_HOME%\bin
 ```
+Optional(Edge): If using Edge for testing. enter `DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0` to enable WDM WebDriver.
 3. Close the admin powershell instance
 
 ## **Install** [IntelliJ](https://www.jetbrains.com/idea/download):       

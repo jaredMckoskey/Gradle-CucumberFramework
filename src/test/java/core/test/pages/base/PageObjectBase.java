@@ -128,15 +128,15 @@ public abstract class PageObjectBase {
    *                JavascriptExecutor
    */
   public void click(WebElement element) {
-    Tools.logger().traceEntry();
+    logger().traceEntry();
 
-    JavascriptExecutor jse = driver;
     try {
       element.click();
     } catch (Exception e) {
+      JavascriptExecutor jse = driver;
       jse.executeScript("arguments[0].click();", element);
     }
-    Tools.logger().traceExit();
+    logger().traceExit();
   }
 
   /**

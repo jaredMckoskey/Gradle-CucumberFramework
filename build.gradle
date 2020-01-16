@@ -13,13 +13,13 @@ repositories {
 
 dependencies {
     // https://mvnrepository.com/artifact/junit/junit
-    implementation group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'junit', name: 'junit', version: '4.13'
 
     // https://mvnrepository.com/artifact/de.monochromata.cucumber/reporting-plugin
     implementation group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: '3.0.7'
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm
-    implementation group: 'io.cucumber', name: 'cucumber-jvm', version: '4.7.4', ext: 'pom'
+    implementation group: 'io.cucumber', name: 'cucumber-jvm', version: '4.8.0', ext: 'pom'
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-text
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
@@ -31,10 +31,10 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
 
     // https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
-    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.7.1'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.8.0'
 
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
-    implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '4.0.0-alpha-1'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '4.0.0-alpha-2'
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
     testImplementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
@@ -43,11 +43,11 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
 
     // https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer
-    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '4.7.4'
+    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '4.8.0'
 
     // needed for run time on tests but is included within cucumber-jvm
-    testImplementation 'io.cucumber:cucumber-java:4.7.4'
-    testImplementation 'io.cucumber:cucumber-junit:4.7.4'
+    testImplementation 'io.cucumber:cucumber-java:4.8.0'
+    testImplementation 'io.cucumber:cucumber-junit:4.8.0'
 }
 
 

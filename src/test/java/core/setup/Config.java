@@ -25,7 +25,7 @@ public class Config {
   public static String USERNAME = getProperty("username", "notSet");
   public static String PASSWORD = getProperty("password", "notSet");
   public static String PROD_USER = getProperty("user", "user1Prod");
-  private static String env = getProperty("env", "https://gfycat.com/");
+  private static String env = getProperty("env", "https://www.gfycat.com/");
   Boolean parallel = Boolean.parseBoolean(getProperty("parallel", "false"));
   public static final Boolean IS_REMOTE = Boolean.parseBoolean(getProperty("isRemote", "false"));
 
@@ -47,7 +47,7 @@ public class Config {
    */
   void setCapabilities() {
     logger().traceEntry();
-    deviceName = getProperty("deviceName", "chrome");
+    deviceName = getProperty("deviceName", "ie11");
     capabilities = getDeviceCapabilities(deviceName);
     url = getProperty("seleniumGrid", "http://localhost:4444/wd/hub");
     logger().traceExit();

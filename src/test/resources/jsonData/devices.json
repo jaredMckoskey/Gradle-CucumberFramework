@@ -36,5 +36,8 @@
   },
   "edge": {
     "browserName": "MicrosoftEdge"
+  },
+  "ie11": {
+    "ie.ensureCleanSession": "true"
   }
 }
