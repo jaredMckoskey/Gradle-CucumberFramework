@@ -1,0 +1,40 @@
+{
+  "chrome": {
+    "browserName": "chrome",
+    "chromeOptions": {
+      "args": [
+        "--start-maximized"
+      ]
+    }
+  },
+  "chromeHeadless": {
+    "browserName": "chrome",
+    "chromeOptions": {
+      "args": [
+        "--headless",
+        "--no-sandbox",
+        "--window-size=1920,1080"
+      ]
+    }
+  },
+  "firefox": {
+    "browserName": "firefox",
+    "firstMatch": [
+      {
+        "platformName": "macos"
+      },
+      {
+        "platformName": "linux"
+      },
+      {
+        "platformName": "windows"
+      },
+      {
+        "platformName": "windows_nt"
+      }
+    ]
+  },
+  "edge": {
+    "browserName": "MicrosoftEdge"
+  }
+}

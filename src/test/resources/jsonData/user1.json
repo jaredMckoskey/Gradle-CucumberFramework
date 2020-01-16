@@ -1,0 +1,13 @@
+{
+  "username": "notSet",
+  "password": "notSet",
+  "placeholderForOtherData": "notSet",
+  "placeholderForListData": [
+    "notSet",
+    "notSet"
+  ],
+  "PlaceholderForChildClassData": {
+    "childClassDataEX": "notSet",
+    "childClassDataEX2": "notSet"
+  }
+}
