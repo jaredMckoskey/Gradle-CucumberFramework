@@ -13,8 +13,6 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static core.utilities.Tools.border;
 import static core.utilities.Tools.logger;
