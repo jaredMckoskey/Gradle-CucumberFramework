@@ -50,7 +50,9 @@ public class TestData {
     return new Gson().fromJson(jsonElement, User.class);
   }
 
-  /** sets the data from the CLI data is entered there */
+  /**
+   * sets the data from the CLI data is entered there
+   */
   private void setDataFromCliIfNotSet() {
     user.username = Tools.setFromCLIifNotSet(user.username, Config.USERNAME);
     user.password = Tools.setFromCLIifNotSet(user.password, Config.PASSWORD);

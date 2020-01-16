@@ -57,10 +57,14 @@ public abstract class PageObjectBase {
    */
   public abstract void trait();
 
-  /** implement logic needed to navigate to the page this method is present on */
+  /**
+   * implement logic needed to navigate to the page this method is present on
+   */
   public abstract void navigateHere();
 
-  /** Modules Initialization */
+  /**
+   * Modules Initialization
+   */
   public ModuleInitializations module() {
     logger().traceEntry();
 
@@ -70,7 +74,10 @@ public abstract class PageObjectBase {
   }
 
   // <editor-fold desc="Action Methods">
-  /** @param url to load with defined ENVIRONMENT */
+
+  /**
+   * @param url to load with defined ENVIRONMENT
+   */
   public void loadEnv(String url) {
     logger().traceEntry();
 
@@ -80,7 +87,9 @@ public abstract class PageObjectBase {
     logger().traceExit(url);
   }
 
-  /** @param element to scroll into view */
+  /**
+   * @param element to scroll into view
+   */
   public void scrollIntoView(WebElement element) {
     logger().traceEntry();
 
@@ -91,7 +100,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param element to set the value from
-   * @param value we want to set for the element
+   * @param value   we want to set for the element
    */
   public void jsSetValue(WebElement element, String value) {
     logger().traceEntry();
@@ -102,7 +111,9 @@ public abstract class PageObjectBase {
     logger().traceExit();
   }
 
-  /** @param element that we want to clear the value from */
+  /**
+   * @param element that we want to clear the value from
+   */
   public void jsClear(WebElement element) {
     logger().traceEntry();
 
@@ -114,7 +125,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param element attempts to click on element normally but if it fails we click on it with
-   *     JavascriptExecutor
+   *                JavascriptExecutor
    */
   public void click(WebElement element) {
     Tools.logger().traceEntry();
@@ -129,8 +140,8 @@ public abstract class PageObjectBase {
   }
 
   /**
-   * @param elems list of elements to click on
-   * @param index index to start clicking from
+   * @param elems  list of elements to click on
+   * @param index  index to start clicking from
    * @param amount how many times to click on elements Sequentially
    */
   public void clickSequentially(List<WebElement> elems, Integer index, Integer amount) {
@@ -149,7 +160,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param element element that we want to click on
-   * @param amount how many times to click on element
+   * @param amount  how many times to click on element
    */
   public void clickMultiple(WebElement element, Integer amount) {
     logger().traceEntry();
@@ -239,6 +250,7 @@ public abstract class PageObjectBase {
     logger().traceEntry();
 
     String target = toCamelCase(fieldName);
+    //noinspection rawtypes
     Class aClass = null;
 
     try {
@@ -258,7 +270,7 @@ public abstract class PageObjectBase {
    * Get element with text
    *
    * @param elements list of elements to search through
-   * @param text text to look for in elements
+   * @param text     text to look for in elements
    * @return element found with text
    */
   public WebElement getElementWithText(List<WebElement> elements, String text) {
@@ -279,7 +291,7 @@ public abstract class PageObjectBase {
   /**
    * Get element with text
    *
-   * @param elements list of elements to search through
+   * @param elements  list of elements to search through
    * @param attrValue text to look for in elements
    * @return element found with text
    */
@@ -302,7 +314,7 @@ public abstract class PageObjectBase {
   /**
    * Get elements with text
    *
-   * @param elems the elements to iterate through and get with matching text
+   * @param elems   the elements to iterate through and get with matching text
    * @param strings the text list to iterate through and get an element with the target text
    * @return the elements found with target text
    */
@@ -320,6 +332,7 @@ public abstract class PageObjectBase {
   // </editor-fold>
 
   // <editor-fold desc="Assert Methods">
+
   /**
    * Assert Element Displayed and return found elements
    *
@@ -361,7 +374,7 @@ public abstract class PageObjectBase {
   /**
    * assert all elements with attribute
    *
-   * @param element list of elements to search through
+   * @param element   list of elements to search through
    * @param attribute attribute to look in
    * @param attrValue text to look for in elements
    * @return element found with text
@@ -377,7 +390,7 @@ public abstract class PageObjectBase {
   /**
    * assert all elements with attribute
    *
-   * @param elements list of elements to search through
+   * @param elements  list of elements to search through
    * @param attribute attribute to look in
    * @param attrValue text to look for in elements
    * @return element found with text
@@ -391,7 +404,9 @@ public abstract class PageObjectBase {
     return logger().traceExit(result);
   }
 
-  /** @param element to verify as non existing */
+  /**
+   * @param element to verify as non existing
+   */
   public void assertElementDoesNotExist(WebElement element) {
     logger().traceEntry();
 
@@ -407,7 +422,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param elements to search through
-   * @param text to verify is not found within list
+   * @param text     to verify is not found within list
    * @return true that the text was not found
    */
   public boolean assertTextNotFound(List<WebElement> elements, String text) {
@@ -423,7 +438,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param elements to search through
-   * @param text to verify is found within list
+   * @param text     to verify is found within list
    * @return true that the text was found
    */
   public boolean assertTextFound(List<WebElement> elements, String text) {
@@ -439,8 +454,8 @@ public abstract class PageObjectBase {
 
   /**
    * @param elements to search through
-   * @param text to verify is found within list
-   * returns true that the text was found
+   * @param text     to verify is found within list
+   *                 returns true that the text was found
    */
   public void assertTextFoundSoftly(List<WebElement> elements, String text) {
     logger().traceEntry();
@@ -454,9 +469,9 @@ public abstract class PageObjectBase {
 
   /**
    * @param elements to search through
-   * @param text to verify is found within list
-   * @param errMsg custom error message to use
-   * returns true that the text was found
+   * @param text     to verify is found within list
+   * @param errMsg   custom error message to use
+   *                 returns true that the text was found
    */
   public void assertTextFoundSoftly(List<WebElement> elements, String text, String errMsg) {
     logger().traceEntry();
@@ -469,7 +484,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param strings to search through
-   * @param text to verify is not found within list
+   * @param text    to verify is not found within list
    */
   public void assertTextNotFoundSoftly(List<String> strings, String text) {
     logger().traceEntry();
@@ -481,7 +496,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param strings to search through
-   * @param text to verify is not found within list
+   * @param text    to verify is not found within list
    */
   public void assertTextNotFoundInStringList(List<String> strings, String text) {
     logger().traceEntry();
@@ -495,7 +510,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param elements to search through
-   * @param text substring to find in elements
+   * @param text     substring to find in elements
    */
   public void assertSubstringFoundInList(List<WebElement> elements, String text) {
     logger().traceEntry();
@@ -511,7 +526,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param strings to search through
-   * @param text to find contained within strings
+   * @param text    to find contained within strings
    */
   public void assertTextContains(List<String> strings, String text) {
     logger().traceEntry();
@@ -534,7 +549,7 @@ public abstract class PageObjectBase {
 
   /**
    * @param strings to search through
-   * @param text to find contained within strings
+   * @param text    to find contained within strings
    */
   public void assertTextContainsSoftly(List<String> strings, String text) {
     logger().traceEntry();
@@ -550,7 +565,7 @@ public abstract class PageObjectBase {
    * assert the expected object equals the actual object
    *
    * @param expected expected result
-   * @param actual actual result
+   * @param actual   actual result
    */
   public void assertEquals(Object expected, Object actual) {
     logger().traceEntry();
@@ -569,7 +584,7 @@ public abstract class PageObjectBase {
    * been completed in the Hooks
    *
    * @param condition boolean condition that we want to verify is TRUE
-   * @param errorMsg error message to use for this specifc soft assert if failed
+   * @param errorMsg  error message to use for this specifc soft assert if failed
    */
   public void assertIsTrueSoftly(String errorMsg, boolean condition) {
     Tools.logger().traceEntry();
@@ -604,11 +619,11 @@ public abstract class PageObjectBase {
       File scrFile = ((TakesScreenshot) Hooks.getDriver()).getScreenshotAs(OutputType.FILE);
       String fileName =
           String.format(
-                  "./TestResults/ScreenShots/Class[%s]_Method[%s]_Line[%s]_Time[%s].png",
-                  throwable.getStackTrace()[1].getClassName(),
-                  throwable.getStackTrace()[1].getMethodName(),
-                  throwable.getStackTrace()[1].getLineNumber(),
-                  getDate("hh-mm-ss", 0))
+              "./TestResults/ScreenShots/Class[%s]_Method[%s]_Line[%s]_Time[%s].png",
+              throwable.getStackTrace()[1].getClassName(),
+              throwable.getStackTrace()[1].getMethodName(),
+              throwable.getStackTrace()[1].getLineNumber(),
+              getDate("hh-mm-ss", 0))
               .replaceAll(" ", "-");
 
       FileUtils.copyFile(scrFile, new File(fileName));
@@ -618,7 +633,7 @@ public abstract class PageObjectBase {
   }
 
   /**
-   * @param actualValues list of strings to check against
+   * @param actualValues   list of strings to check against
    * @param expectedValues to find contained within actualValues
    */
   public void valuesContained(List<String> actualValues, List<String> expectedValues) {
@@ -636,7 +651,7 @@ public abstract class PageObjectBase {
   }
 
   /**
-   * @param actualValues list of strings to check against
+   * @param actualValues   list of strings to check against
    * @param expectedValues to find NOT contained within actualValues
    */
   public void valuesNotContained(List<String> actualValues, List<String> expectedValues) {
@@ -655,8 +670,9 @@ public abstract class PageObjectBase {
   // </editor-fold>
 
   // <editor-fold desc="Wait Methods">
+
   /**
-   * @param elements we will wait to be found
+   * @param elements       we will wait to be found
    * @param waitForSeconds time to wait for
    */
   public void waitForListLoad(List<WebElement> elements, Integer waitForSeconds) {
@@ -678,6 +694,7 @@ public abstract class PageObjectBase {
           Assert.assertFalse(elementIsEmpty);
         } catch (AssertionError | Exception ex) {
           sleep(1);
+          count.getAndIncrement();
         }
       }
     }
@@ -728,7 +745,9 @@ public abstract class PageObjectBase {
     logger().traceExit();
   }
 
-  /** seconds to sleep thread -> ONLY USE THIS WHEN ABSOLUTELY NECESSARY. KEEP AS PRIVATE!!! */
+  /**
+   * seconds to sleep thread -> ONLY USE THIS WHEN ABSOLUTELY NECESSARY. KEEP AS PRIVATE!!!
+   */
   private void sleep(int seconds) {
     logger().traceEntry();
 
@@ -742,7 +761,9 @@ public abstract class PageObjectBase {
     logger().traceExit();
   }
 
-  /** seconds to sleep thread -> ONLY USE THIS WHEN ABSOLUTELY NECESSARY. KEEP AS PRIVATE!!! */
+  /**
+   * seconds to sleep thread -> ONLY USE THIS WHEN ABSOLUTELY NECESSARY. KEEP AS PRIVATE!!!
+   */
   private void sleep(long milliseconds) {
     logger().traceEntry();
 
@@ -777,8 +798,8 @@ public abstract class PageObjectBase {
   }
 
   /**
-   * @param element the element to wait for
-   * @param attribute attribute to use
+   * @param element       the element to wait for
+   * @param attribute     attribute to use
    * @param attributeToBe attribute value we are looking to be contained
    * @param secondsToWait amount of time to wait
    */
@@ -793,8 +814,8 @@ public abstract class PageObjectBase {
   }
 
   /**
-   * @param element the element to wait for
-   * @param attribute attribute to use
+   * @param element       the element to wait for
+   * @param attribute     attribute to use
    * @param attributeToBe attribute value we are looking to NOT be contained
    * @param secondsToWait amount of time to wait
    */
@@ -811,10 +832,10 @@ public abstract class PageObjectBase {
   }
 
   /**
-   * @param seconds seconds to wait
+   * @param seconds  seconds to wait
    * @param pollTime how often the condition should be evaluated
    * @return chain of returned wait. IMPORTANT! -> must have .until(ExpectedConditions) or it will
-   *     not wait
+   * not wait
    */
   public FluentWait<WebDriver> fluentWait(Integer seconds, Integer pollTime) {
     logger().traceEntry();

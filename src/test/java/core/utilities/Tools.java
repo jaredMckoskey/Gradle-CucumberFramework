@@ -27,28 +27,38 @@ public class Tools {
     return LogManager.getLogger(declaringClass);
   }
 
-  /** gets random string */
+  /**
+   * gets random string
+   */
   public static String getRandomString(int size) {
     return generateRandom("QWERTYUIOPASDFGHJKLZXCVBNM", size);
   }
 
-  /** gets random int string */
+  /**
+   * gets random int string
+   */
   public static String getRandomIntString(int size) {
     return generateRandom("123456789", size);
   }
 
-  /** gets a random int */
+  /**
+   * gets a random int
+   */
   public static Integer getRandomInt(int size) {
     Random rand = new Random();
     return rand.nextInt(size);
   }
 
-  /** removes all special characters */
+  /**
+   * removes all special characters
+   */
   public static String removeSpecialCharacters(String value) {
     return value.replaceAll("[^a-zA-Z]", "");
   }
 
-  /** generates a random string */
+  /**
+   * generates a random string
+   */
   private static String generateRandom(String characters, int count) {
     StringBuilder builder = new StringBuilder();
 
@@ -63,7 +73,7 @@ public class Tools {
    * gets current date with desired SimpleDateFormat and adds or substracts dates based on
    * daysToAddOrSubstract param
    *
-   * @param dateFormat SimpleDateFormat to use
+   * @param dateFormat           SimpleDateFormat to use
    * @param daysToAddOrSubstract how many days from the current date we want to use
    * @return the created date formate
    */
@@ -115,7 +125,7 @@ public class Tools {
   /**
    * builds substring list from string list
    *
-   * @param list string list to build substrings from
+   * @param list       string list to build substrings from
    * @param targetText target substring to find and build with
    * @return built substring list
    */
@@ -143,7 +153,7 @@ public class Tools {
   /**
    * gets substring with substringTarget and returns found substring
    *
-   * @param text text we want to get the substring from
+   * @param text            text we want to get the substring from
    * @param substringTarget target substring we want to find in text
    * @return the target substring
    */
@@ -180,7 +190,7 @@ public class Tools {
   /**
    * sets from command line if data is notSet in json
    *
-   * @param property the property we want to set
+   * @param property    the property we want to set
    * @param sysProperty sys property to use if not set in property
    * @return the set property
    */
@@ -189,7 +199,9 @@ public class Tools {
     return property;
   }
 
-  /** prints out horizontal dash line to pad text */
+  /**
+   * prints out horizontal dash line to pad text
+   */
   public static void printBorderLine() {
     System.out.println(
         format(
@@ -213,8 +225,9 @@ public class Tools {
   /**
    * puts a border (dash horizaontal lines) around FORMATTED text from args with new lines
    * prints out horizontal dash line to pad text
+   *
    * @param stringToBorder string we want to vorder
-   * @param args the args to format a string with.
+   * @param args           the args to format a string with.
    * @return bordered text that will be formatted to be on a new line
    */
   public static String border(String stringToBorder, Object... args) {

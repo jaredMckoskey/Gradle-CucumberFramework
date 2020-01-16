@@ -74,7 +74,9 @@ public class Hooks {
     logger().traceExit();
   }
 
-  /** logic performed after scenario is complete */
+  /**
+   * logic performed after scenario is complete
+   */
   @After(order = 2)
   public void afterScenario() {
     logger().traceEntry();
@@ -137,7 +139,9 @@ public class Hooks {
     logger().traceExit();
   }
 
-  /** takes screenshot in multiple formats */
+  /**
+   * takes screenshot in multiple formats
+   */
   public static void takeScreenshot() {
     logger().traceEntry();
     fileScreenshot();
@@ -145,17 +149,19 @@ public class Hooks {
     logger().traceExit();
   }
 
-  /** takes screenshot in file format */
+  /**
+   * takes screenshot in file format
+   */
   private static void fileScreenshot() {
     logger().traceEntry();
     try {
       File scrFile = ((TakesScreenshot) Hooks.getDriver()).getScreenshotAs(OutputType.FILE);
       String fileName =
           String.format(
-                  "./TestResults/ScreenShots/Feature_%s_Line%s_Time[%s].png",
-                  Hooks.getScenario().getName(),
-                  Hooks.getScenario().getLine(),
-                  Tools.getDate("hh-mm-ss", 0))
+              "./TestResults/ScreenShots/Feature_%s_Line%s_Time[%s].png",
+              Hooks.getScenario().getName(),
+              Hooks.getScenario().getLine(),
+              Tools.getDate("hh-mm-ss", 0))
               .replaceAll(" ", "-");
 
       FileUtils.copyFile(scrFile, new File(fileName));
@@ -164,7 +170,9 @@ public class Hooks {
     }
   }
 
-  /** takes screenshot and embeds it */
+  /**
+   * takes screenshot and embeds it
+   */
   public static void embedScreenshot() {
     logger().traceEntry();
     try {
@@ -177,7 +185,9 @@ public class Hooks {
     logger().traceExit();
   }
 
-  /** removes previously created reports and temp files */
+  /**
+   * removes previously created reports and temp files
+   */
   private void manageResults() {
     logger().traceEntry();
     if (!reportsCreated) {
@@ -198,7 +208,9 @@ public class Hooks {
     }
   }
 
-  /** skips a scenario if not valid for current run */
+  /**
+   * skips a scenario if not valid for current run
+   */
   private void skipScenario(String errorReason) {
     logger().traceEntry();
     try {
@@ -213,7 +225,10 @@ public class Hooks {
   // </editor-fold>
 
   // <editor-fold desc="@Tag Hooks">
-  /** Skip Scenario if Tagged @wip */
+
+  /**
+   * Skip Scenario if Tagged @wip
+   */
   @Before("@wip")
   public void wipSkip() {
     logger().traceEntry();

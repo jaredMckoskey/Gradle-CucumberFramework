@@ -42,7 +42,9 @@ public class Config {
     logger().traceExit();
   }
 
-  /** sets Web Desired Capabilities */
+  /**
+   * sets Web Desired Capabilities
+   */
   void setCapabilities() {
     logger().traceEntry();
     deviceName = getProperty("deviceName", "chrome");
@@ -66,7 +68,8 @@ public class Config {
 
     file = getClass().getResourceAsStream("/jsonData/devices.json");
     reader = new BufferedReader(new InputStreamReader(file));
-    hashType = new TypeToken<HashMap<String, Object>>() {}.getType();
+    hashType = new TypeToken<HashMap<String, Object>>() {
+    }.getType();
     jsonElement = new JsonParser().parse(reader).getAsJsonObject().get(device);
 
     HashMap<String, Object> stringObjectHashMap = new Gson().fromJson(jsonElement, hashType);

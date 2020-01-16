@@ -11,16 +11,21 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static core.utilities.Tools.logger;
 
+@SuppressWarnings("DanglingJavadoc")
 public class CreateSharedDrivers {
 
-  /** initialize this class to create a driver if driver is not null */
+  /**
+   * initialize this class to create a driver if driver is not null
+   */
   public CreateSharedDrivers() {
     if (Hooks.getDriver() == null) {
       createAndSetAddedDriver();
     }
   }
 
-  // quits all storedDrivers with a shutdown hook
+  /**
+   * quits all storedDrivers with a shutdown hook
+   */
   static {
     Runtime.getRuntime()
         .addShutdownHook(
@@ -32,13 +37,14 @@ public class CreateSharedDrivers {
                               .info(
                                   String.format(
                                       "Stored Driver Count: [%s]",
-                                      String.valueOf(Hooks.storedDrivers.size())));
+                                      Hooks.storedDrivers.size()));
 
                           logger().info(String.format("Driver [%s] will be quit", driver));
 
                           try {
                             driver.quit();
                           } catch (Exception e) {
+                            //noinspection UnusedAssignment
                             driver = null;
                           }
                         })));
@@ -70,8 +76,8 @@ public class CreateSharedDrivers {
         case "chrome":
           WebDriverManager.chromedriver().setup();
           System.setProperty("webdriver.chrome.silentOutput", "true");
-          Hooks.addDriver(new ChromeDriver());
-          Hooks.getDriver().manage().window().maximize();
+          Hooks.addDriver(new ChromeDriver(new ChromeOptions()
+              .addArguments("--start-maximized")));
           break;
         case "chromeHeadless":
           WebDriverManager.chromedriver().setup();
@@ -82,7 +88,6 @@ public class CreateSharedDrivers {
                       .setHeadless(true)
                       .addArguments("no-sandbox")
                       .addArguments("window-size=1920,1080")));
-          Hooks.getDriver().manage().window().maximize();
           break;
         case "firefox":
           WebDriverManager.firefoxdriver().setup();
